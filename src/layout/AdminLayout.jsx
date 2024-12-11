@@ -1,12 +1,4 @@
-// import { Outlet } from "rea";
-
 import { useMediaQuery } from "@uidotdev/usehooks";
-// import { useClickOutside } from "@/hooks/use-click-outside";
-
-// import { Sidebar } from "@/layouts/sidebar";
-// import { Header } from "@/layouts/header";
-
-// import { cn } from "@/utils/cn";
 import { useEffect, useRef, useState } from "react";
 import { useClickOutside } from "../hooks/useClickOutside";
 import cn from "../lib/cn";

@@ -1,13 +1,3 @@
-// import { forwardRef } from "react";
-// import { NavLink } from "react-router-dom";
-
-// import { navbarLinks } from "@/constants";
-
-// import logoLight from "";
-// import logoDark from "@/assets/logo-dark.svg";
-
-// import { cn } from "@/utils/cn";
-
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
 import cn from "../../../lib/cn";
