@@ -1,4 +1,4 @@
-import { ChartColumn, Home, NotepadText, Package, PackagePlus, Settings, ShoppingBag, UserCheck, UserPlus, Users } from "lucide-react";
+import { BookOpen, BookPlus, Home, List, NotebookPen, PlusSquare, Users } from "lucide-react";
 
 export const navbarLinks = [
   {
@@ -7,67 +7,47 @@ export const navbarLinks = [
       {
         label: "Dashboard",
         icon: Home,
-        path: "/",
+        path: "/admin/dashboard",
       },
       {
-        label: "Analytics",
-        icon: ChartColumn,
-        path: "/analytics",
-      },
-      {
-        label: "Reports",
-        icon: NotepadText,
-        path: "/reports",
-      },
-    ],
-  },
-  {
-    title: "Customers",
-    links: [
-      {
-        label: "Customers",
+        label: "Manage Users",
         icon: Users,
-        path: "/customers",
-      },
-      {
-        label: "New customer",
-        icon: UserPlus,
-        path: "/new-customer",
-      },
-      {
-        label: "Verified customers",
-        icon: UserCheck,
-        path: "/verified-customers",
+        path: "/admin/manage-users",
       },
     ],
   },
   {
-    title: "Products",
+    title: "Lessons",
     links: [
       {
-        label: "Products",
-        icon: Package,
-        path: "/products",
+        label: "Lessons",
+        icon: BookOpen,
+        path: "/admin/lessons",
       },
       {
-        label: "New product",
-        icon: PackagePlus,
-        path: "/new-product",
+        label: "Add Lessons",
+        icon: BookPlus,
+        path: "/admin/add-lesson",
       },
       {
-        label: "Inventory",
-        icon: ShoppingBag,
-        path: "/inventory",
+        label: "Manage Lessons",
+        icon: NotebookPen,
+        path: "/admin/manage-lesson",
       },
     ],
   },
   {
-    title: "Settings",
+    title: "Vocabularies",
     links: [
       {
-        label: "Settings",
-        icon: Settings,
-        path: "/settings",
+        label: "Add Vocabularies",
+        icon: PlusSquare,
+        path: "/admin/add-vocabularies",
+      },
+      {
+        label: "Manage Vocabularies",
+        icon: List,
+        path: "/admin/manage-vocabularies",
       },
     ],
   },

@@ -33,7 +33,7 @@ const AdminLayout = () => {
       <Sidebar ref={sidebarRef} collapsed={collapsed} />
       <div className={cn("transition-[margin] duration-300", collapsed ? "md:ml-[70px]" : "md:ml-[240px]")}>
         <Header collapsed={collapsed} setCollapsed={setCollapsed} />
-        <div className="h-[calc(100vh-60px)] overflow-y-auto overflow-x-hidden p-6">
+        <div className="h-[calc(100vh-60px)] overflow-y-auto overflow-x-hidden ">
           <Outlet />
         </div>
       </div>

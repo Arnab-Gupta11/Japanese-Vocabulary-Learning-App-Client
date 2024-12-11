@@ -1,4 +1,4 @@
-import Logout from "../components/shared/Logout/Logout";
+import Logout from "../../components/shared/Logout/Logout";
 
 const Home = () => {
   return (

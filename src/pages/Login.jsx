@@ -52,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-light-bg-200 dark:bg-dark-bg-300 z-0 pt-0 md:pt-10 font-Work-Sans">
+    <div className="min-h-screen bg-light-bg-200 dark:bg-slate-900 z-0 pt-0 md:pt-10 font-Work-Sans">
       {/* <Helmet>
         <title>Inventohub | Register</title>
       </Helmet> */}
