@@ -4,7 +4,12 @@ import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { post } from "../services/ApiEndpoint";
+import { useDispatch, useSelector } from "react-redux";
+import { SetUser } from "../redux/slice/AuthSLice";
 const Login = () => {
+  const user = useSelector((state) => state.Auth);
+  console.log(user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   // useEffect(() => {
@@ -27,10 +32,12 @@ const Login = () => {
         password: data.password,
       };
       //Send data to server
-      const request = await post("/api/v1/auth/login", currentUser);
+      const request = await post("/auth/login", currentUser);
       const response = request.data;
+      // console.log("data :----->", response.data);
       if (response) {
         toast.success("User LoggedIn Successfully");
+        dispatch(SetUser(response.data));
         navigate("/");
       }
 

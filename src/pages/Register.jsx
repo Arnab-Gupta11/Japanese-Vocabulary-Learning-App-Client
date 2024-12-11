@@ -36,7 +36,7 @@ const Register = () => {
         password: data.password,
       };
       //Send data to server
-      const request = await post("/api/v1/users/create-user", currentUser);
+      const request = await post("/users/create-user", currentUser);
       const response = request.data;
       if (response) {
         toast.success("User Created Successfully");
