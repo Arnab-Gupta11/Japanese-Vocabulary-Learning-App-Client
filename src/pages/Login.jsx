@@ -25,7 +25,7 @@ const Login = () => {
 
   //email password register
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
       const currentUser = {
         email: data.email,
@@ -38,7 +38,11 @@ const Login = () => {
       if (response) {
         toast.success("User LoggedIn Successfully");
         dispatch(SetUser(response.data));
-        navigate("/");
+        if (response?.data?.role == "admin") {
+          navigate("/admin/dashboard");
+        } else if (response?.data?.role == "user") {
+          navigate("/");
+        }
       }
 
       reset();

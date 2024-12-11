@@ -1,12 +1,12 @@
 import Logout from "../components/shared/Logout/Logout";
 
-const Home = () => {
+const Admin = () => {
   return (
-    <div className="h-full w-full bg-red-700">
-      Home
+    <div>
+      Admin
       <Logout />
     </div>
   );
 };
 
-export default Home;
+export default Admin;

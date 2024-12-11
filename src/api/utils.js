@@ -18,4 +18,5 @@ const imageUpload = async (img) => {
     console.error(error);
   }
 };
+
 export default imageUpload;
