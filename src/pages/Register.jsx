@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { FiAlertCircle, FiCheck, FiUpload } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import imageUpload from "../api/utils";
 import { post } from "../services/ApiEndpoint";
@@ -37,13 +37,13 @@ const Register = () => {
       };
       //Send data to server
       const request = await post("/api/v1/users/create-user", currentUser);
-      const reposne = request.data;
-      if (request.status == 200) {
+      const response = request.data;
+      if (response) {
         toast.success("User Created Successfully");
       }
 
       reset();
-      // navigate("/login");
+      navigate("/login");
     } catch (err) {
       toast.error(err?.response?.data?.message);
     }
