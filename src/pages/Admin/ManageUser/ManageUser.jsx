@@ -30,7 +30,7 @@ const ManageUser = () => {
             <div>
               <div className="overflow-auto rounded-md block mt-5 shadow-light-container-shadow dark:shadow-dark-container-shadow">
                 <table className="w-full">
-                  <thead className="bg-gray-50 dark:bg-slate-900 border-b-2 border-gray-200 dark:border-slate-600 text-lg">
+                  <thead className="bg-gray-50 dark:bg-slate-800 border-b-2 border-gray-200 dark:border-slate-600 text-lg">
                     <tr className="text-light-text-100 dark:text-slate-200">
                       <th className=" py-4 px-3 text-sm font-semibold tracking-wide text-left">User Name</th>
 

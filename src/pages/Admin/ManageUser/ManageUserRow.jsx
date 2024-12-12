@@ -25,7 +25,7 @@ const ManageUserRow = ({ user, refetch }) => {
     }
   };
   return (
-    <tr className="odd:bg-white odd:dark:bg-slate-950 even:bg-gray-50 even:dark:bg-slate-900 text-sm text-light-text-200 dark:text-slate-200 whitespace-nowrap font-medium hover:bg-[#cbe1ff] dark:hover:bg-[#172c48]">
+    <tr className="odd:bg-white odd:dark:bg-slate-900 even:bg-gray-50 even:dark:bg-slate-800 text-sm text-light-text-200 dark:text-slate-200 whitespace-nowrap font-medium hover:bg-[#cbe1ff] dark:hover:bg-[#172c48]">
       <td className="p-2">
         <div className="flex items-center gap-2">
           <div className="avatar">
