@@ -5,19 +5,19 @@ import Register from "./pages/Register";
 import UserLoayout from "./layout/UserLoayout";
 import AdminLayout from "./layout/AdminLayout";
 import PublicLayout from "./layout/PublicLayout";
-import Lesson from "./pages/User/Lesson";
 import { ThemeProvider } from "./contexts/theme-context";
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageUser from "./pages/Admin/ManageUser/ManageUser";
-import Lessons from "./pages/Admin/Lessons/Lessons";
 import AddLesson from "./pages/Admin/AddLesson/AddLesson";
 import ManageLesson from "./pages/Admin/ManageLesson/ManageLesson";
 import AddVocabularies from "./pages/Admin/AddVocabularies/AddVocabularies";
 import ManageVocabularies from "./pages/Admin/ManageVocabularies/ManageVocabularies";
-import Home from "./pages/User/Home";
 import { Toaster } from "react-hot-toast";
 import UpadateLesson from "./pages/Admin/ManageLesson/UpadateLesson";
 import UpdateVocabulary from "./pages/Admin/ManageVocabularies/UpdateVocabulary";
+import Lessons from "./pages/Admin/ManageLesson/ManageLesson";
+import Home from "./pages/User/Home";
+import Tutorials from "./pages/User/Tutorials";
 
 function App() {
   return (
@@ -27,8 +27,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<UserLoayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/lessons" element={<Lesson />} />
+              <Route path="/lessons" element={<Home />} />
+              <Route path="/tutorials" element={<Tutorials />} />
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<Dashboard />} />

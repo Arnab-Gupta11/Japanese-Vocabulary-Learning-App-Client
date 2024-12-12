@@ -11,7 +11,7 @@ const PublicLayout = () => {
       if (user.role === "admin") {
         navigate("/admin/dashboard"); // Redirect admin to the admin-specific area
       } else {
-        navigate("/"); // Redirect logged-in non-admin users to the general home page
+        navigate("/lessons"); // Redirect logged-in non-admin users to the general home page
       }
     }
   }, [user, navigate]);
