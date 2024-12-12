@@ -17,7 +17,6 @@ const PublicLayout = () => {
   }, [user, navigate]);
   return (
     <div>
-      PublicLayout
       <Outlet />
     </div>
   );

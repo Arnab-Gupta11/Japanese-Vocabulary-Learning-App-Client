@@ -22,7 +22,10 @@ const Logout = () => {
     }
   };
   return (
-    <button className="bg-green-300 px-4 py-2 rounded-md text-white" onClick={handleLogout}>
+    <button
+      className="bg-gradient-to-r from-violet-700 to-violet-500 hover:bg-gradient-to-l hover:scale-105 active:scale-95 duration-700 text-white px-6 py-2 rounded-md font-medium"
+      onClick={handleLogout}
+    >
       logout
     </button>
   );

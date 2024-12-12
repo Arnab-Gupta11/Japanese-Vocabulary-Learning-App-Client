@@ -1,21 +1,19 @@
 import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { post } from "../services/ApiEndpoint";
 import { useDispatch, useSelector } from "react-redux";
 import { SetUser } from "../redux/slice/AuthSLice";
+import { ImSpinner } from "react-icons/im";
 const Login = () => {
+  const [loading, setLoading] = useState(false);
   const user = useSelector((state) => state.Auth);
   console.log(user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  // useEffect(() => {
-  //   const currentMode = localStorage.getItem("mode") || "light";
-  //   document.documentElement.classList.add(currentMode);
-  // }, []);
   const {
     register,
     handleSubmit,
@@ -27,6 +25,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     // console.log(data);
     try {
+      setLoading(true);
       const currentUser = {
         email: data.email,
         password: data.password,
@@ -48,23 +47,22 @@ const Login = () => {
       reset();
     } catch (err) {
       toast.error(err?.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-light-bg-200 dark:bg-slate-900 z-0 pt-0 md:pt-10 font-Work-Sans">
+    <div className="min-h-screen bg-slate-100 dark:bg-slate-950 z-0 pt-10 md:pt-20">
       {/* <Helmet>
         <title>Inventohub | Register</title>
       </Helmet> */}
-      <Toaster></Toaster>
       <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-col py-8 items-center">
-          <div className="w-11/12 md:10/12 lg:w-4/12 bg-light-bg-100 rounded-lg mx-auto shadow-md shadow-light-bg-400 ">
+          <div className="w-11/12 md:10/12 lg:w-4/12 bg-white dark:bg-slate-900 rounded-lg mx-auto shadow-light-container-shadow dark:shadow-dark-container-shadow pb-4">
             <div className="text-center mb-3 mt-8">
               <div className="grid place-items-center">{/* <NavbarTitle /> */}</div>
-              <h1 className="text-xl xsm:text-2xl sm:text-4xl lg:px-5 font-bold pt-10 text-light-text-100 dark:text-dark-text-100 text-red-600">
-                Register now!
-              </h1>
+              <h1 className="text-xl xsm:text-2xl sm:text-4xl lg:px-5 font-bold pt-5 text-slate-900 dark:text-slate-100 ">Login to your account</h1>
             </div>
             <div className="card-body">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,7 +71,7 @@ const Login = () => {
                     type="email"
                     placeholder="email"
                     name="email"
-                    className="px-4 py-3 w-full rounded-lg shadow-inner shadow-violet-300 dark:shadow-dark-bg-300 outline-none border-none bg-transparent font-medium text-slate-600 dark:text-dark-text-200 mt-4"
+                    className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
                     {...register("email", { required: true })}
                   />
                   {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Email is required</span>}
@@ -84,7 +82,7 @@ const Login = () => {
                       type={showPassword ? "text" : "password"}
                       name="password"
                       placeholder="Password"
-                      className="px-4 py-3 w-full rounded-lg shadow-inner shadow-violet-300 dark:shadow-dark-bg-300 outline-none border-none bg-transparent mt-4 font-medium text-slate-600 dark:text-dark-text-200"
+                      className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
                       {...register("password", {
                         required: true,
                         pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{6,}$/,
@@ -108,24 +106,17 @@ const Login = () => {
                 </div>
 
                 <div className="form-control mt-6 p-0">
-                  {/* <Button variant={"default"} className={"w-full"}>
-                    Register
-                  </Button> */}
-                  <button className="bg-red-700">Register</button>
+                  <button className="bg-gradient-to-r from-violet-700 to-violet-500 hover:bg-gradient-to-l hover:scale-105 active:scale-95 duration-700 text-white px-6 py-2 rounded-md flex justify-center">
+                    {loading ? <ImSpinner className="animate-spin" /> : "Sign In"}
+                  </button>
                 </div>
               </form>
-              <p className="text-light-text-200 dark:text-dark-text-200 font-medium mt-1">
-                Already have an account?
-                <Link to="/login" className="text-[#FF792E] text-base hover:text-[#FF792E] hover:underline font-semibold ml-1">
-                  Please Login
+              <p className="text-slate-700 dark:text-slate-300 font-medium mt-1">
+                Dont have an account?
+                <Link to="/register" className="text-violet-500 text-base hover:text-violet-600 hover:underline font-semibold ml-1">
+                  Please Register
                 </Link>
               </p>
-              <div className="my-5 border-[0.5px] border-light-bg-400 dark:border-slate-800 " />
-              {/* <div className="grid place-items-center">
-                <Button variant={"outline"} size={"auto"} icon={FcGoogle} iconPosition={"left"} onClick={handleGoogleLogin}>
-                  Google
-                </Button>
-              </div> */}
             </div>
           </div>
         </div>

@@ -39,8 +39,8 @@ const ManageUserRow = ({ user, refetch }) => {
         </div>
       </td>
       <td className="py-2">{email}</td>
-      <td className="py-2 pl-2">{role}</td>
-      <td className="py-2 pl-3">
+      <td className="py-2">{role}</td>
+      <td className="py-2">
         <div className="flex items-center justify-start gap-4 ">
           <button
             onClick={updateUserRole}

@@ -20,7 +20,7 @@ const ManageUser = () => {
       <div>
         {filteredData.length > 0 ? (
           <div className="py-5 px-8">
-            <h2 className="text-xl md:text-3xl text-[#1B2850] font-semibold ml-1">Total {filteredData.length} User</h2>
+            <h2 className="text-xl md:text-3xl text-slate-950 dark:text-slate-100 font-semibold ml-1">Total {filteredData.length} Lessons</h2>
             {/* <DashContainer> */}
             <div>
               <div className="overflow-auto rounded-md block mt-5 shadow-light-container-shadow dark:shadow-dark-container-shadow">
@@ -29,11 +29,11 @@ const ManageUser = () => {
                     <tr className="text-light-text-100 dark:text-slate-200">
                       <th className=" py-4 px-3 text-sm font-semibold tracking-wide text-left">User Name</th>
 
-                      <th className="w-60 py-4 px-3 text-sm font-semibold tracking-wide text-left">Email</th>
+                      <th className="w-60 py-4 text-sm font-semibold tracking-wide text-left">Email</th>
 
-                      <th className="w-40 py-4 px-3 text-sm font-semibold tracking-wide text-left whitespace-nowrap">Role</th>
+                      <th className="w-40 py-4 text-sm font-semibold tracking-wide text-left whitespace-nowrap">Role</th>
 
-                      <th className="w-56 py-4 px-3 text-sm font-semibold tracking-wide text-left">Actions</th>
+                      <th className="w-56 py-4 text-sm font-semibold tracking-wide text-left">Actions</th>
                     </tr>
                   </thead>
 
