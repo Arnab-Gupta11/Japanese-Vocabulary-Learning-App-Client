@@ -1,3 +1,4 @@
+import logo from "../../../assets/Logo.webp";
 const Footer = () => {
   return (
     <div>
@@ -5,10 +6,10 @@ const Footer = () => {
         <aside>
           <div>
             <div className="flex items-center gap-4 mb-6">
-              {/* <Link to={"/"}>
-                <img src={logo1} alt="" className={`w-24 xsm:w-32 sm:w-40`} />
-              </Link> */}
-              Logo
+              <div className="flex items-center gap-1">
+                <img src={logo} alt="" className="w-10 h-10" />
+                <h1 className="text-slate-300 font-bold text-3xl font-Cormorant-Garamond">EduLexis</h1>
+              </div>
             </div>
           </div>
           <p className="text-sm xsm:text-base sm:text-lg">Providing reliable services since 2008</p>

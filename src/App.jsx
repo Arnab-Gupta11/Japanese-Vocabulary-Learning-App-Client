@@ -6,7 +6,7 @@ import UserLoayout from "./layout/UserLoayout";
 import AdminLayout from "./layout/AdminLayout";
 import PublicLayout from "./layout/PublicLayout";
 import { ThemeProvider } from "./contexts/theme-context";
-import Dashboard from "./pages/Admin/Dashboard";
+// import Dashboard from "./pages/Admin/Dashboard";
 import ManageUser from "./pages/Admin/ManageUser/ManageUser";
 import AddLesson from "./pages/Admin/AddLesson/AddLesson";
 import ManageLesson from "./pages/Admin/ManageLesson/ManageLesson";
@@ -28,12 +28,12 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<UserLoayout />}>
-              <Route path="/lessons" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/lessons/:lessonNo" element={<ViewLesson />} />
               <Route path="/tutorials" element={<Tutorials />} />
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
-              <Route path="dashboard" element={<Dashboard />} />
+              {/* <Route path="dashboard" element={<Dashboard />} /> */}
               <Route path="manage-users" element={<ManageUser />} />
               <Route path="lessons" element={<Lessons />} />
               <Route path="add-lesson" element={<AddLesson />} />

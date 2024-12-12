@@ -9,9 +9,9 @@ const PublicLayout = () => {
   useEffect(() => {
     if (user) {
       if (user.role === "admin") {
-        navigate("/admin/dashboard"); // Redirect admin to the admin-specific area
+        navigate("/admin/manage-users"); // Redirect admin to the admin-specific area
       } else {
-        navigate("/lessons"); // Redirect logged-in non-admin users to the general home page
+        navigate("/"); // Redirect logged-in non-admin users to the general home page
       }
     }
   }, [user, navigate]);

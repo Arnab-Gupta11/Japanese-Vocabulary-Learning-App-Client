@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { patch } from "../../../services/ApiEndpoint";
 import toast from "react-hot-toast";
 // import Button2 from "../../../../components/shared/Button2/Button2";
@@ -48,9 +47,6 @@ const ManageUserRow = ({ user, refetch }) => {
           >
             {role === "admin" ? "Make User" : "Make Admin"}
           </button>
-          <span className="text-2xl text-red-700 font-medium hover:text-red-600 cursor-pointer">
-            <RiDeleteBin6Line className="hover:scale-105 duration-500" />
-          </span>
         </div>
       </td>
     </tr>

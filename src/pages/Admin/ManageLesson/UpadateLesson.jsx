@@ -20,8 +20,8 @@ const UpdateLesson = () => {
     try {
       setLoading(true);
       const newLesson = {
-        lessonName: data.lesson,
-        lessonNumber: data.lessonNo,
+        lessonName: data.lesson || lessonName,
+        lessonNumber: data.lessonNo || lessonNumber,
       };
       console.log(newLesson);
       // Send data to server

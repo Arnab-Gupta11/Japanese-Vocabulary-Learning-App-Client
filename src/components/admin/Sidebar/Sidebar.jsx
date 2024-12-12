@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import cn from "../../../lib/cn";
 import { navbarLinks } from "../../../constants";
 import { NavLink } from "react-router";
-
+import logo from "../../../assets/Logo.webp";
 export const Sidebar = forwardRef(({ collapsed }, ref) => {
   return (
     <aside
@@ -14,11 +14,9 @@ export const Sidebar = forwardRef(({ collapsed }, ref) => {
         collapsed ? "max-md:-left-full" : "max-md:left-0"
       )}
     >
-      <div className="flex gap-x-3 p-3">
-        {/* <img src={logoLight} alt="Logoipsum" className="dark:hidden" />
-        <img src={logoDark} alt="Logoipsum" className="hidden dark:block" /> */}
-        <h1>Logo</h1>
-        {!collapsed && <p className="text-lg font-medium text-slate-900 transition-colors dark:text-slate-50">Logoipsum</p>}
+      <div className="flex gap-x-3 p-3 items-center">
+        <img src={logo} alt="Logoipsum" className="w-10 h-10" />
+        {!collapsed && <p className="text-xl font-bold text-slate-900 transition-colors dark:text-slate-50 font-Cormorant-Garamond">EduLexis</p>}
       </div>
       <div className="flex w-full flex-col gap-y-4 overflow-y-auto overflow-x-hidden p-3 [scrollbar-width:_thin]">
         {navbarLinks.map((navbarLink) => (

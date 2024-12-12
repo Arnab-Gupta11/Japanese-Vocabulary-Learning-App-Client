@@ -38,9 +38,9 @@ const Login = () => {
         toast.success("User LoggedIn Successfully");
         dispatch(SetUser(response.data));
         if (response?.data?.role == "admin") {
-          navigate("/admin/dashboard");
+          navigate("/admin/manage-users");
         } else if (response?.data?.role == "user") {
-          navigate("/lessons");
+          navigate("/");
         }
       }
 

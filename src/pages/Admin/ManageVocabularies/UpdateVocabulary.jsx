@@ -19,11 +19,11 @@ const UpdateVocabulary = () => {
     try {
       setLoading(true);
       const updatedVoacabullary = {
-        word: data.word,
-        meaning: data.meaning,
-        pronunciation: data.pronunciation,
-        whenToSay: data.say,
-        lessonNo: data.lessonNo,
+        word: data.word || word,
+        meaning: data.meaning || meaning,
+        pronunciation: data.pronunciation || pronunciation,
+        whenToSay: data.say || whenToSay,
+        lessonNo: data.lessonNo || lessonNo,
         adminEmail,
       };
       // Send data to server

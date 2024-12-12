@@ -14,7 +14,7 @@ const UserLoayout = () => {
     }
   }, [user, navgiate]);
   return (
-    <div className="bg-slate-100 dark:bg-slate-950 pt-4">
+    <div className="bg-slate-100 dark:bg-slate-950 pt-4 overflow-hidden">
       <Navbar />
       <div className="min-h-screen">
         <Outlet />

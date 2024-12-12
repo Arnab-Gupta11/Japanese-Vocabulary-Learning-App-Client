@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import NavBtn from "../../shared/NavBtn/NavBtn";
+import Logo from "../../shared/Logo/Logo";
 
 const Navbar = () => {
   return (
@@ -12,11 +13,16 @@ const Navbar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-slate-50 dark:bg-slate-900 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-              <a className="btn btn-ghost text-xl mb-5">Logo</a>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-slate-50 dark:bg-slate-900 rounded-box z-[1] mt-3 w-52 p-4 shadow-light-container-shadow dark:shadow-dark-container-shadow"
+            >
+              <div className="flex md:hidden mb-5">
+                <Logo />
+              </div>
               <li className="text-slate-800 dark:text-slate-300 font-medium mb-3">
                 <NavLink
-                  to="/lessons"
+                  to="/"
                   className={({ isActive }) => (isActive ? " shadow-navlink-shadow rounded-md px-2 text-slate-800 dark:text-slate-300" : "")}
                 >
                   <h1 className="text-center w-12">Lessons</h1>
@@ -31,14 +37,17 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <a className="btn btn-ghost text-xl hidden lg:flex">Logo</a>
+            {/* logo  */}
+            <div className="hidden md:flex">
+              <Logo />
+            </div>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li className="text-slate-800 dark:text-slate-300 font-medium">
               <NavLink
-                to="/lessons"
+                to="/"
                 className={({ isActive }) => (isActive ? " shadow-navlink-shadow rounded-md px-2 text-slate-800 dark:text-slate-300" : "")}
               >
                 Lessons
