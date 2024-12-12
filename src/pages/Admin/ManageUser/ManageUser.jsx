@@ -1,8 +1,3 @@
-// import { useEffect, useState } from "react";
-// import DashContainer from "../../../../components/shared/DashContainer/DashContainer";
-// import Loader from "../../../components/shared/Loader/Loader";
-// import { get } from "../../../services/ApiEndpoint";
-
 import { useSelector } from "react-redux";
 import Loader from "../../../components/shared/Loader/Loader";
 import useUsers from "../../../hooks/useUsers";

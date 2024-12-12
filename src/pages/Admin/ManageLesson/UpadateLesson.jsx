@@ -1,12 +1,18 @@
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { post } from "../../../services/ApiEndpoint";
-import { useNavigate } from "react-router";
+// import { post } from "../../../services/ApiEndpoint";
+import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
 import { ImSpinner } from "react-icons/im";
-const AddLesson = () => {
+import { IoMdArrowRoundBack } from "react-icons/io";
+import useSingleUser from "../../../hooks/useSingleUser";
+import { patch } from "../../../services/ApiEndpoint";
+const UpdateLesson = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { lessonId } = useParams();
+  const [result, refetch] = useSingleUser(lessonId);
+  const { lessonName, lessonNumber, _id } = result;
   const {
     register,
     handleSubmit,
@@ -24,17 +30,18 @@ const AddLesson = () => {
       };
       console.log(newLesson);
       // Send data to server
-      const request = await post("/lessons", newLesson);
+      const request = await patch(`/lessons/${_id}`, newLesson);
       const response = request.data;
       if (response) {
-        toast.success("New Lesson Added Successfully");
-        navigate("/admin/lessons");
+        toast.success("Lesson Updated Successfully");
+        refetch();
+        navigate("/admin/manage-lesson");
       }
 
       reset();
     } catch (err) {
       if (err?.response?.data?.message === "Invalid ID") {
-        toast.error("Lesson Name is Already Exist.");
+        toast.error("Lesson Number is Already Exist.");
       } else {
         toast.error(err?.response?.data?.message);
       }
@@ -51,9 +58,14 @@ const AddLesson = () => {
       <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-col pt-20 items-center">
           <div className="w-11/12 md:10/12 lg:w-4/12 bg-white dark:bg-slate-900 rounded-lg mx-auto shadow-light-container-shadow dark:shadow-dark-container-shadow pb-4">
-            <div className="text-center mb-3 mt-8">
-              <div className="grid place-items-center">{/* <NavbarTitle /> */}</div>
-              <h1 className="text-xl xsm:text-2xl sm:text-4xl lg:px-5 font-bold pt-5 text-slate-900 dark:text-slate-100 ">Add New Lesson</h1>
+            <div className="text-center mb-3 mt-8 flex justify-between items-center mx-4">
+              <h1 className="text-xl sm:text-3xl lg:px-5 font-bold pt-2 text-slate-900 dark:text-slate-100 ">Update Lesson</h1>
+              <button
+                onClick={() => navigate(-1)}
+                className="bg-gradient-to-r from-violet-700 to-violet-500 hover:bg-gradient-to-l hover:scale-105 active:scale-95 duration-700 text-white w-8 h-8 rounded-full flex items-center justify-center"
+              >
+                <IoMdArrowRoundBack />
+              </button>
             </div>
             <div className="card-body">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -62,6 +74,7 @@ const AddLesson = () => {
                     type="text"
                     placeholder="Lesson Name"
                     name="lesson"
+                    defaultValue={lessonName}
                     className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
                     {...register("lesson", { required: true })}
                   />
@@ -72,6 +85,7 @@ const AddLesson = () => {
                     type="text"
                     placeholder="Lesson Number"
                     name="lessonNo"
+                    defaultValue={lessonNumber}
                     className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
                     {...register("lessonNo", { required: true })}
                   />
@@ -83,7 +97,7 @@ const AddLesson = () => {
                     type="submit"
                     className="bg-gradient-to-r from-violet-700 to-violet-500 hover:bg-gradient-to-l hover:scale-105 active:scale-95 duration-700 text-white px-6 py-2 rounded-md"
                   >
-                    {loading ? <ImSpinner className="animate-spin" /> : "Add Lesson"}
+                    {loading ? <ImSpinner className="animate-spin" /> : "Update Lesson"}
                   </button>
                 </div>
               </form>
@@ -95,4 +109,4 @@ const AddLesson = () => {
   );
 };
 
-export default AddLesson;
+export default UpdateLesson;
