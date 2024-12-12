@@ -65,7 +65,7 @@ const AddLesson = () => {
                     className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
                     {...register("lesson", { required: true })}
                   />
-                  {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Name is required</span>}
+                  {errors.lesson && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Name is required</span>}
                 </div>
                 <div className="form-control">
                   <input
@@ -75,7 +75,7 @@ const AddLesson = () => {
                     className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
                     {...register("lessonNo", { required: true })}
                   />
-                  {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Number is required</span>}
+                  {errors.lessonNo && <span className="text-red-600 text-xs font-medium mt-0 ml-1">Lesson Number is required</span>}
                 </div>
 
                 <div className="mt-6 p-0 flex justify-center">

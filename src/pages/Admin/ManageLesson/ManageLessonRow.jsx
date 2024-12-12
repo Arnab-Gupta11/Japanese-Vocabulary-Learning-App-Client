@@ -1,8 +1,4 @@
 /* eslint-disable react/prop-types */
-// import { RiDeleteBin6Line } from "react-icons/ri";
-// import { patch } from "../../../services/ApiEndpoint";
-// import toast from "react-hot-toast";
-
 import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router";
