@@ -1,17 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { get } from "../services/ApiEndpoint";
 
-const useVocabularies = (lessonNo) => {
+const useSingleLesson = (id) => {
   const {
     refetch,
     data: result = [],
     isLoading,
     isPending,
   } = useQuery({
-    queryKey: ["vocabulary", lessonNo], // Add lessonNo to queryKey for caching
+    queryKey: ["singleLesson", id],
     queryFn: async () => {
-      const url = lessonNo ? `/vocabularies?lessonNo=${lessonNo}` : `/vocabularies`;
-      const res = await get(url);
+      const res = await get(`/lessons/${id}`);
       return res?.data?.data;
     },
   });
@@ -19,4 +18,4 @@ const useVocabularies = (lessonNo) => {
   return [result, refetch, isLoading, isPending];
 };
 
-export default useVocabularies;
+export default useSingleLesson;

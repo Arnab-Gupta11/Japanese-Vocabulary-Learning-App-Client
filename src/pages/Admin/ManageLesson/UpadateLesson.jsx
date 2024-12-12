@@ -5,20 +5,15 @@ import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
 import { ImSpinner } from "react-icons/im";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import useSingleUser from "../../../hooks/useSingleUser";
 import { patch } from "../../../services/ApiEndpoint";
+import useSingleLesson from "../../../hooks/useSingleLesson";
 const UpdateLesson = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { lessonId } = useParams();
-  const [result, refetch] = useSingleUser(lessonId);
+  const [result, refetch] = useSingleLesson(lessonId);
   const { lessonName, lessonNumber, _id } = result;
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   //email password register
   const onSubmit = async (data) => {
@@ -72,24 +67,26 @@ const UpdateLesson = () => {
                 <div className="form-control">
                   <input
                     type="text"
+                    required
                     placeholder="Lesson Name"
                     name="lesson"
                     defaultValue={lessonName}
                     className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
-                    {...register("lesson", { required: true })}
+                    {...register("lesson")}
                   />
-                  {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Name is required</span>}
+                  {/* {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Name is required</span>} */}
                 </div>
                 <div className="form-control">
                   <input
                     type="text"
+                    required
                     placeholder="Lesson Number"
                     name="lessonNo"
                     defaultValue={lessonNumber}
                     className="px-4 py-3 w-full rounded-lg  outline-none border-none bg-transparent font-medium text-slate-800 dark:text-slate-300 mt-4 bg-slate-200 dark:bg-slate-950"
-                    {...register("lessonNo", { required: true })}
+                    {...register("lessonNo")}
                   />
-                  {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Number is required</span>}
+                  {/* {errors.email && <span className="text-red-700 text-xs font-medium mt-0 ml-1">Lesson Number is required</span>} */}
                 </div>
 
                 <div className="mt-6 p-0 flex justify-center">

@@ -17,6 +17,7 @@ import ManageVocabularies from "./pages/Admin/ManageVocabularies/ManageVocabular
 import Home from "./pages/User/Home";
 import { Toaster } from "react-hot-toast";
 import UpadateLesson from "./pages/Admin/ManageLesson/UpadateLesson";
+import UpdateVocabulary from "./pages/Admin/ManageVocabularies/UpdateVocabulary";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="manage-lesson/:lessonId" element={<UpadateLesson />} />
               <Route path="add-vocabularies" element={<AddVocabularies />} />
               <Route path="manage-vocabularies" element={<ManageVocabularies />} />
+              <Route path="manage-vocabularies/:id" element={<UpdateVocabulary />} />
             </Route>
             <Route path="/" element={<PublicLayout />}>
               <Route path="login" element={<Login />} />

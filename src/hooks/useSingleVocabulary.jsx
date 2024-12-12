@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { get } from "../services/ApiEndpoint";
 
-const useSingleUser = (id) => {
+const useSingleVocabulary = (id) => {
   const {
     refetch,
     data: result = [],
     isLoading,
     isPending,
   } = useQuery({
-    queryKey: ["singleUser", id],
+    queryKey: ["singleVocabulary", id],
     queryFn: async () => {
-      const res = await get(`/lessons/${id}`);
+      const res = await get(`/vocabularies/${id}`);
       return res?.data?.data;
     },
   });
@@ -18,4 +18,4 @@ const useSingleUser = (id) => {
   return [result, refetch, isLoading, isPending];
 };
 
-export default useSingleUser;
+export default useSingleVocabulary;

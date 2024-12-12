@@ -18,10 +18,10 @@ const ManageVocabulariesRow = ({ vocabulary, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteData(`/lessons/${_id}`).then((res) => {
+        deleteData(`/vocabularies/${_id}`).then((res) => {
           console.log(res.data);
           if (res?.data?.success === true) {
-            Swal.fire("Your Lesson has been Deleted!", "success");
+            Swal.fire("Vocabulary has been Deleted!", "success");
             refetch();
           }
         });
@@ -37,7 +37,7 @@ const ManageVocabulariesRow = ({ vocabulary, refetch }) => {
       <td className="py-2 pl-5">{lessonNo}</td>
       <td className="py-2 pl-3">
         <div className="flex items-center justify-center gap-4 ">
-          <Link to={`/admin/manage-lesson/${_id}`}>
+          <Link to={`/admin/manage-vocabularies/${_id}`}>
             <span className="text-2xl text-[#637381] dark:text-slate-400 font-medium hover:text-black dark:hover:text-slate-200 cursor-pointer ">
               <BiEditAlt className="hover:scale-105 duration-500" />
             </span>
