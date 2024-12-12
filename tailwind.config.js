@@ -12,6 +12,10 @@ export default {
         "dark-container-shadow": "0px 0px 3px 0px #181C51",
       },
     },
+    fontFamily: {
+      "Cormorant-Garamond": ["Cormorant Garamond", "serif"],
+      "Work-Sans": ["Work Sans", "serif"],
+    },
   },
   // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],

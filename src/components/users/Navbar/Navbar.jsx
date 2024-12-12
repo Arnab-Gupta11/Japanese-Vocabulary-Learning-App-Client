@@ -31,7 +31,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <a className="btn btn-ghost text-xl lg:flex">Logo</a>
+            <a className="btn btn-ghost text-xl hidden lg:flex">Logo</a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

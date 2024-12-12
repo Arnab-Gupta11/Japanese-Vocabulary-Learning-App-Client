@@ -18,16 +18,18 @@ import UpdateVocabulary from "./pages/Admin/ManageVocabularies/UpdateVocabulary"
 import Lessons from "./pages/Admin/ManageLesson/ManageLesson";
 import Home from "./pages/User/Home";
 import Tutorials from "./pages/User/Tutorials";
+import ViewLesson from "./pages/User/ViewLesson";
 
 function App() {
   return (
-    <>
+    <div className="font-Work-Sans">
       <ThemeProvider storageKey="theme">
         <Toaster position="top-right" reverseOrder={false} />
         <BrowserRouter>
           <Routes>
             <Route element={<UserLoayout />}>
               <Route path="/lessons" element={<Home />} />
+              <Route path="/lessons/:lessonNo" element={<ViewLesson />} />
               <Route path="/tutorials" element={<Tutorials />} />
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
@@ -48,7 +50,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 
