@@ -15,10 +15,10 @@ import ManageVocabularies from "./pages/Admin/ManageVocabularies/ManageVocabular
 import { Toaster } from "react-hot-toast";
 import UpadateLesson from "./pages/Admin/ManageLesson/UpadateLesson";
 import UpdateVocabulary from "./pages/Admin/ManageVocabularies/UpdateVocabulary";
-import Lessons from "./pages/Admin/ManageLesson/ManageLesson";
 import Home from "./pages/User/Home";
 import Tutorials from "./pages/User/Tutorials";
 import ViewLesson from "./pages/User/ViewLesson";
+import Lessons from "./pages/Admin/Lessons/Lessons";
 
 function App() {
   return (

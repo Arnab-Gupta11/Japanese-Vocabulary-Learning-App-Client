@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { patch } from "../../../services/ApiEndpoint";
 import toast from "react-hot-toast";
+import { ImSpinner } from "react-icons/im";
 // import Button2 from "../../../../components/shared/Button2/Button2";
 
 const ManageUserRow = ({ user, refetch }) => {
   const { name, email, role, _id, image } = user;
   console.log(_id);
+  const updatedRole = role === "admin" ? "Make User" : "Make Admin";
+  const [loading, setLoading] = useState(false);
   const updateUserRole = async () => {
     try {
+      setLoading(true);
       let updatedRole;
       if (role === "admin") {
         updatedRole = "user";
@@ -21,6 +26,8 @@ const ManageUserRow = ({ user, refetch }) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -43,9 +50,9 @@ const ManageUserRow = ({ user, refetch }) => {
         <div className="flex items-center justify-start gap-4 ">
           <button
             onClick={updateUserRole}
-            className="bg-blue-400  py-2.5 rounded-md hover:bg-[#1B2850]  hover:duration-500 font-semibold text-white w-32"
+            className="bg-gradient-to-r from-violet-700 to-violet-500 hover:bg-gradient-to-l hover:scale-105 active:scale-95 duration-700 text-white  py-2.5 rounded-md hover:duration-500 font-semibold w-32 flex justify-center items-center"
           >
-            {role === "admin" ? "Make User" : "Make Admin"}
+            {loading ? <ImSpinner className="animate-spin" /> : updatedRole}
           </button>
         </div>
       </td>

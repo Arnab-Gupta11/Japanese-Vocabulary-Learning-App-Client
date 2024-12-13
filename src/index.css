@@ -32,9 +32,9 @@
   }
 
   .sidebar-item {
-    @apply flex h-[40px] w-full flex-shrink-0 items-center gap-x-3 rounded-lg p-3 text-base font-medium text-slate-900 transition-colors hover:bg-blue-50 dark:text-slate-50 dark:hover:bg-blue-950;
+    @apply flex h-[40px] w-full flex-shrink-0 items-center gap-x-3 rounded-lg p-3 text-base font-medium text-slate-900 hover:bg-blue-50 dark:text-slate-50 dark:hover:bg-blue-950  hover:scale-105 active:scale-95 duration-1000 transition-all;
     &.active {
-      @apply bg-blue-500 text-slate-50 dark:bg-blue-600;
+      @apply bg-gradient-to-r from-violet-700 to-violet-500  text-white;
     }
   }
 
